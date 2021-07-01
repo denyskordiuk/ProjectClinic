@@ -26,6 +26,7 @@ namespace Project
         {
             services.AddControllersWithViews();
             services.AddSingleton<ICommonDataManagement, CommonDataManagement>();
+            services.AddSingleton<IOrdersDataManagement, OrdersDataManagement>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
