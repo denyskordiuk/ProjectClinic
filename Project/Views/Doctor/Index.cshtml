@@ -16,10 +16,10 @@
     </div>
 </section>
 
-<p>
+<p style="margin: 10px">
     <a asp-action="Create" class="genric-btn info-border circle" style="margin-top: 10px; width: 100%">Add New</a>
 </p>
-<table class="table">
+<table class="table" style="margin: 10px">
     <thead>
         <tr>
             <th>
@@ -65,9 +65,9 @@
                 @Html.DisplayFor(modelItem => item.DoctorStatus)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn-outline-info" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.License }, new { @class = "btn-outline-info" }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn-outline-info" })
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "genric-btn primary circle" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.License }, new { @class = "genric-btn info circle" }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "genric-btn danger circle" })
             </td>
         </tr>
 }

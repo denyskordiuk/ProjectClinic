@@ -11,7 +11,16 @@ namespace Project.Controllers
 {
     public class OrdersController : Controller
     {
+        private readonly IOrdersDataManagement _service;
+        public OrdersController(IOrdersDataManagement service)
+        {
+            _service = service;
+        }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 
 }
