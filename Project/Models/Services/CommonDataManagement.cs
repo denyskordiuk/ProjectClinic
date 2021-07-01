@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace Project.Models.Services
 {
-    public class DataManagement : IDataManagement
+    public class CommonDataManagement : ICommonDataManagement
     {
         private IList<Doctor> _doctors = new List<Doctor>();
         private IList<Client> _clients = new List<Client>();
-        private IList<Order> _orders = new List<Order>();
 
 
-        public DataManagement()
+        public CommonDataManagement()
         {
             _doctors.Add(new Doctor
             {
-                License = "134585D",
+                License = "568485D",
                 DoctorName = "Ivan",
                 Experience = 2,
                 PhoneNumber = "0983458752",
@@ -27,7 +26,7 @@ namespace Project.Models.Services
 
             _doctors.Add(new Doctor
             {
-                License = "596712H",
+                License = "596712O",
                 DoctorName = "Ruslan",
                 Experience = 6,
                 PhoneNumber = "0983416582",
@@ -36,7 +35,7 @@ namespace Project.Models.Services
 
             _doctors.Add(new Doctor
             {
-                License = "134585D",
+                License = "165156K",
                 DoctorName = "Georg",
                 Experience = 9,
                 PhoneNumber = "0975616593",
@@ -45,7 +44,7 @@ namespace Project.Models.Services
 
             _doctors.Add(new Doctor
             {
-                License = "134585D",
+                License = "1941568N",
                 DoctorName = "Dion",
                 Experience = 3,
                 PhoneNumber = "0501097426",
@@ -54,7 +53,7 @@ namespace Project.Models.Services
 
             _doctors.Add(new Doctor
             {
-                License = "134585D",
+                License = "789456I",
                 DoctorName = "Yosup",
                 Experience = 15,
                 PhoneNumber = "0506359748",
@@ -87,16 +86,6 @@ namespace Project.Models.Services
         }
 
         public Client GetClient(string number)
-        {
-            throw new Exception("not implemented");
-        }
-
-        public IList<Order> GetOrders(SortOrderType sortOrderType = SortOrderType.Desc, string substring = null)
-        {
-            throw new Exception("not implemented");
-        }
-
-        public Order GetOrder(string number)
         {
             throw new Exception("not implemented");
         }

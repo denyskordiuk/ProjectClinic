@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Models.Services;
 
 namespace Project
 {
@@ -24,6 +25,7 @@ namespace Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<ICommonDataManagement, CommonDataManagement>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
