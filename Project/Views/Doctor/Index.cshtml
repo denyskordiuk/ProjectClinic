@@ -65,9 +65,9 @@
                 @Html.DisplayFor(modelItem => item.DoctorStatus)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "genric-btn primary circle" }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.License }, new { @class = "genric-btn primary circle" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.License }, new { @class = "genric-btn info circle" }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "genric-btn danger circle" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.License }, new { @class = "genric-btn danger circle" })
             </td>
         </tr>
 }

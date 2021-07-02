@@ -89,5 +89,29 @@ namespace Project.Models.Services
         {
             throw new Exception("not implemented");
         }
+
+        public string AddDoctor(Doctor doctor)
+        {
+            _doctors.Add(doctor);
+            return doctor.License;
+        }
+
+        public string UpdateDoctor(string doctorLicense, Doctor model)
+        {
+            var doctor = GetDoctor(doctorLicense);
+            doctor.License = model.License;
+            doctor.Experience = model.Experience;
+            doctor.PhoneNumber = model.PhoneNumber;
+            doctor.Cabinet = model.Cabinet;
+            doctor.DoctorStatus = model.DoctorStatus;
+
+            return model.License;
+        }
+
+        public void DeleteDoctor(string doctorLicense)
+        {
+            var doctor = GetDoctor(doctorLicense);
+            _doctors.Remove(doctor);
+        }
     }
 }
