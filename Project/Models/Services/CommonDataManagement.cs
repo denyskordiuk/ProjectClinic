@@ -60,6 +60,26 @@ namespace Project.Models.Services
                 Cabinet = 112
             });
 
+
+            _clients.Add(new Client
+            {
+                FullName = "Artur Kirovish",
+                Age = 19,
+                Adress = "Lviv",
+                Mail = "artur@gmail.com",
+                PhoneNumber = "0685268750",
+                PayMethod = PayMethod.Cash
+            });
+
+            _clients.Add(new Client
+            {
+                FullName = "Andry Sternenkin",
+                Age = 24,
+                Adress = "Odessa",
+                Mail = "andry.odesskiy@gmail.com",
+                PhoneNumber = "0508478592",
+                PayMethod = PayMethod.DebitCard
+            });
         }
 
 
@@ -82,12 +102,18 @@ namespace Project.Models.Services
 
         public IList<Client> GetClients(string substring = null)
         {
-            throw new Exception("not implemented");
+            var result = _clients;
+            if (substring is not null)
+            {
+                result = result.Where(x => x.PhoneNumber == substring).ToList();
+            }
+            return result;
         }
 
         public Client GetClient(string number)
         {
-            throw new Exception("not implemented");
+            return _clients.SingleOrDefault(x => x.PhoneNumber.Contains(number,
+               StringComparison.InvariantCultureIgnoreCase));
         }
 
         public string AddDoctor(Doctor doctor)
@@ -112,6 +138,32 @@ namespace Project.Models.Services
         {
             var doctor = GetDoctor(doctorLicense);
             _doctors.Remove(doctor);
+        }
+
+        public string AddClient(Client client)
+        {
+            _clients.Add(client);
+            return client.PhoneNumber;
+        }
+
+        public string UpdateClient(string phoneNumber, Client model)
+        {
+            var client = GetClient(phoneNumber);
+            client.FullName = model.FullName;
+            client.PhoneNumber = model.PhoneNumber;
+            client.Age = model.Age;
+            client.Adress = model.Adress;
+            client.Mail = model.Mail;
+            client.PayMethod = model.PayMethod;
+
+
+            return model.PhoneNumber;
+        }
+
+        public void DeleteClient(string phoneNumber)
+        {
+            var client = GetClient(phoneNumber);
+            _clients.Remove(client);
         }
     }
 }

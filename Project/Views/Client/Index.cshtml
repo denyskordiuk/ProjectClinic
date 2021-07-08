@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Project.Models.Entities.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="slider-area slider-area2 slider-height2 d-flex align-items-center  hero-overly">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-11 col-md-12">
+                <div class="hero__caption hero__caption2 text-center">
+                    <h2>Client List</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<p>
+    <a asp-action="Create" class="genric-btn info-border circle" style="margin-top: 10px; width: 100%">Add New</a>
+</p>
+<table class="table" style="margin: 10px">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayMethod)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayMethod)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PhoneNumber }, new { @class = "genric-btn primary circle" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PhoneNumber }, new { @class = "genric-btn info circle" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PhoneNumber }, new { @class = "genric-btn danger circle" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
