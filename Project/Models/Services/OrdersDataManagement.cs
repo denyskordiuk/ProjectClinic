@@ -12,6 +12,13 @@ namespace Project.Models.Services
         private readonly ICommonDataManagement _commonService;
 
         private IList<Order> _orders = new List<Order>();
+
+        public OrdersDataManagement()
+        {
+
+        }
+
+
         public OrdersDataManagement(ICommonDataManagement commonService) 
         {
             _commonService = commonService;
@@ -24,7 +31,9 @@ namespace Project.Models.Services
 
         public IList<Order> GetOrders(SortOrderType sortOrder = SortOrderType.Desc, string substring = null)
         {
-            throw new NotImplementedException();
+            var result = _orders;
+            result = result.ToList();
+            return result;
         }
     }
 }

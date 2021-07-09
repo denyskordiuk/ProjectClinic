@@ -11,7 +11,7 @@ namespace Project.Controllers
 {
     public class OrdersController : Controller
     {
-        private readonly IOrdersDataManagement _service;
+        private readonly IOrdersDataManagement _service = new OrdersDataManagement();
         public OrdersController(IOrdersDataManagement service)
         {
             _service = service;
@@ -19,7 +19,8 @@ namespace Project.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var orders = _service.GetOrders();
+            return View(orders);
         }
     }
 
