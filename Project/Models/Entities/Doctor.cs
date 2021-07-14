@@ -9,6 +9,7 @@ namespace Project.Models.Entities
     public class Doctor
     {
         [Key]
+        [RegularExpression(@"([0-9]){5}\d([A-Z]{1})", ErrorMessage = "Incorrect license number example(xxxxxxL")]
         public string License { get; set; }
         [Display(Name = "Doctor Name")]
         [RegularExpression(@"^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$", ErrorMessage = "Incorrect name example(Ivanov Ivan Ivanovich)")]

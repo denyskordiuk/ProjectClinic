@@ -20,7 +20,7 @@ namespace Project.Models.Services
                 License = "568485D",
                 DoctorName = "Ivan",
                 Experience = 2,
-                PhoneNumber = "0983458752",
+                PhoneNumber = "+380983458752",
                 Cabinet = 420
             });
 
@@ -29,7 +29,7 @@ namespace Project.Models.Services
                 License = "596712O",
                 DoctorName = "Ruslan",
                 Experience = 6,
-                PhoneNumber = "0983416582",
+                PhoneNumber = "+380983416582",
                 Cabinet = 27
             });
 
@@ -38,7 +38,7 @@ namespace Project.Models.Services
                 License = "165156K",
                 DoctorName = "Georg",
                 Experience = 9,
-                PhoneNumber = "0975616593",
+                PhoneNumber = "+380975616593",
                 Cabinet = 84
             });
 
@@ -47,7 +47,7 @@ namespace Project.Models.Services
                 License = "1941568N",
                 DoctorName = "Dion",
                 Experience = 3,
-                PhoneNumber = "0501097426",
+                PhoneNumber = "+380501097426",
                 Cabinet = 301
             });
 
@@ -56,7 +56,7 @@ namespace Project.Models.Services
                 License = "789456I",
                 DoctorName = "Yosup",
                 Experience = 15,
-                PhoneNumber = "0506359748",
+                PhoneNumber = "+380506359748",
                 Cabinet = 112
             });
 
@@ -67,7 +67,7 @@ namespace Project.Models.Services
                 Age = 19,
                 Adress = "Lviv",
                 Mail = "artur@gmail.com",
-                PhoneNumber = "0685268750",
+                PhoneNumber = "+380685268750",
                 PayMethod = PayMethod.Cash
             });
 
@@ -77,7 +77,7 @@ namespace Project.Models.Services
                 Age = 24,
                 Adress = "Odessa",
                 Mail = "andry.odesskiy@gmail.com",
-                PhoneNumber = "0508478592",
+                PhoneNumber = "+380508478592",
                 PayMethod = PayMethod.DebitCard
             });
         }
