@@ -9,6 +9,7 @@ namespace Project.Models.Entities
     public class Doctor
     {
         [Key]
+        [Required]
         [RegularExpression(@"([0-9]){5}\d([A-Z]{1})", ErrorMessage = "Incorrect license number example(xxxxxxL")]
         public string License { get; set; }
         [Display(Name = "Doctor Name")]
