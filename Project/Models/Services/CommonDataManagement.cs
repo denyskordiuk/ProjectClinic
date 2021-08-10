@@ -86,12 +86,23 @@ namespace Project.Models.Services
         public IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null, string doctorName = null, string doctorLicense = null)
         {
             var result = _doctors;
-            if (doctorStatus.HasValue)
+            var list = _doctors.ToList();
+            //if (doctorStatus.HasValue)
+            //{
+            //    result = result.Where(x => x.DoctorStatus == doctorStatus.Value).ToList();
+            //}
+
+            if (!string.IsNullOrWhiteSpace(doctorLicense))
             {
-                result = result.Where(x => x.DoctorStatus == doctorStatus.Value).ToList();
+                list = list.Where(x => x.License.Contains(doctorLicense, StringComparison.CurrentCultureIgnoreCase)).ToList();
             }
 
-            return result;
+            if (!string.IsNullOrWhiteSpace(doctorName))
+            {
+                list = list.Where(x => x.License.Contains(doctorName, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            }
+
+            return list;
         }
 
         public Doctor GetDoctor(string number)
