@@ -3673,9 +3673,9 @@ nav.nav-menu-show {
 
 /* line 30, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/~/scss/_h1-hero.scss */
 .slider-bg1 {
-  background-image: url(../img/hero/h1_hero1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url(../img/med/neonbrand-y8fWicGsv4g-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* line 35, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/~/scss/_h1-hero.scss */
@@ -5179,7 +5179,6 @@ nav.nav-menu-show {
 /* line 150, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/~/scss/_blog_page.scss */
 .blog_area a:hover, .blog_area a :hover {
   background: -webkit-linear-gradient(131deg, #071112 0%, #071112 99%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
   transition: .4s;
@@ -8111,7 +8110,7 @@ del {
 
 /* line 918, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/~/scss/_elements.scss */
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(../img/elements/success-radio.png) no-repeat center center;
   border: none;
 }
 

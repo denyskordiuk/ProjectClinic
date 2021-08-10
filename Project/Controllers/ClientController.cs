@@ -40,8 +40,12 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult Create(Client model)
         {
-            _service.AddClient(model);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _service.AddClient(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public IActionResult Edit(string id)
@@ -58,9 +62,13 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult Edit(string id, Client model)
         {
-            _service.UpdateClient(id, model);
+            if (ModelState.IsValid)
+            {
+                _service.UpdateClient(id, model);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public IActionResult Delete(string id)

@@ -83,7 +83,7 @@ namespace Project.Models.Services
         }
 
 
-        public IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null)
+        public IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null, string doctorName = null, string doctorLicense = null)
         {
             var result = _doctors;
             if (doctorStatus.HasValue)

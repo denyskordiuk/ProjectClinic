@@ -19,6 +19,24 @@
 <p style="margin: 10px">
     <a asp-action="Create" class="genric-btn info-border circle" style="margin-top: 10px; width: 100%">Add New</a>
 </p>
+<form method="get">
+    <div class="row" style="margin-left:10px">
+
+        <div class="col-2">
+            <input type="text" name="DoctorLicense" value="" />
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2">
+            <input type="text" name="DoctorName" value="" />
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2">
+            <input class="genric-btn info-border circle" type="submit" name="SearchFilter" value="Search" />
+        </div>
+        <div class="col-2">   </div>
+    </div>
+</form>
+
 <table class="table" style="margin: 10px">
     <thead>
         <tr>
@@ -44,32 +62,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.License)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Experience)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cabinet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorStatus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.License }, new { @class = "genric-btn primary circle" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.License }, new { @class = "genric-btn info circle" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.License }, new { @class = "genric-btn danger circle" })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.License)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cabinet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorStatus)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.License }, new { @class = "genric-btn primary circle" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.License }, new { @class = "genric-btn info circle" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.License }, new { @class = "genric-btn danger circle" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

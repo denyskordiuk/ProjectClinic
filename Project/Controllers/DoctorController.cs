@@ -20,9 +20,9 @@ namespace Project.Controllers
             _service = service;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string DoctorLicense, string DoctorName)
         {
-            var doctors = _service.GetDoctors();
+            var doctors = _service.GetDoctors(doctorLicense: DoctorLicense, doctorName: DoctorName);
             return View(doctors);
         }
 
@@ -41,8 +41,12 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult Create(Doctor model)
         {
-            _service.AddDoctor(model);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _service.AddDoctor(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public IActionResult Edit(string id)
@@ -59,9 +63,14 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult Edit(string id, Doctor model)
         {
-            _service.UpdateDoctor(id, model);
+            if (ModelState.IsValid)
+            {
+                 _service.UpdateDoctor(id, model);
 
-            return RedirectToAction("Index");
+                 return RedirectToAction("Index");
+            }
+            return View(model);
+
         }
 
         public IActionResult Delete(string id)

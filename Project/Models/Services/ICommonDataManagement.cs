@@ -11,7 +11,7 @@ namespace Project.Models.Services
         string UpdateClient(string phoneNumber, Client model);
         void DeleteClient(string phoneNumber);
         Doctor GetDoctor(string number);
-        IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null);
+        IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null, string doctorName = null, string doctorLicense = null);
         string AddDoctor(Doctor doctor);
         string UpdateDoctor(string doctorLicense, Doctor model);
         void DeleteDoctor(string doctorLicense);
