@@ -29,6 +29,6 @@
 </div>
 <div class="form-group">
     <label asp-for="DoctorStatus" class="control-label"></label>
-    <div class="form-control" style="height: 50px; border:0px;"><select asp-for="DoctorStatus" asp-items="@Html.GetEnumSelectList<Project.Models.Entities.DoctorStatus>()"></select></div>
+    <div class="form-control" style="height: 50px; border:0px;"><select asp-for="DoctorStatus" asp-items="@Html.GetEnumSelectList<Project.Models.Entities.DoctorStatuses>()"></select></div>
     <span asp-validation-for="DoctorStatus" class="text-danger"></span>
 </div>

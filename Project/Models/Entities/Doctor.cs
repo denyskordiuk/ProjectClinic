@@ -21,6 +21,6 @@ namespace Project.Models.Entities
         public string PhoneNumber { get; set; }
         public int Cabinet { get; set; }
         [Display(Name = "Doctor Status")]
-        public DoctorStatus DoctorStatus { get; set; }
+        public DoctorStatuses DoctorStatus { get; set; }
 }
 }

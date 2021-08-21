@@ -1,4 +1,5 @@
 using Project.Models.Entities;
+using Project.Models.ViewData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -83,7 +84,7 @@ namespace Project.Models.Services
         }
 
 
-        public IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null, string doctorName = null, string doctorLicense = null)
+        public IList<Doctor> GetDoctors(DoctorStatuses? doctorStatus = null, string phoneNumber = null, string license = null)
         {
             var result = _doctors;
             var list = _doctors.ToList();
@@ -92,14 +93,37 @@ namespace Project.Models.Services
             //    result = result.Where(x => x.DoctorStatus == doctorStatus.Value).ToList();
             //}
 
-            if (!string.IsNullOrWhiteSpace(doctorLicense))
+            if (!string.IsNullOrWhiteSpace(license))
             {
-                list = list.Where(x => x.License.Contains(doctorLicense, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                list = list.Where(x => x.License.Contains(license, StringComparison.CurrentCultureIgnoreCase)).ToList();
             }
 
-            if (!string.IsNullOrWhiteSpace(doctorName))
+            if (!string.IsNullOrWhiteSpace(phoneNumber))
             {
-                list = list.Where(x => x.License.Contains(doctorName, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                list = list.Where(x => x.PhoneNumber.Contains(phoneNumber, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            }
+
+            return list;
+        }
+
+        public IList<Doctor> GetDoctors(DoctorFilterModel filter)
+        {
+            var result = _doctors;
+            var list = _doctors.ToList();
+
+            if (!string.IsNullOrWhiteSpace(filter.License))
+            {
+                list = list.Where(x => x.License.Contains(filter.License, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(filter.PhoneNumber))
+            {
+                list = list.Where(x => x.PhoneNumber.Contains(filter.PhoneNumber, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            }
+
+            if (filter.DoctorStatus.HasValue)
+            {
+                list = list.Where(x => x.DoctorStatus == filter.DoctorStatus.Value).ToList();
             }
 
             return list;

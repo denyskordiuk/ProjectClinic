@@ -1,8 +1,8 @@
 ﻿namespace Project.Models.Entities
 {
-    public enum DoctorStatus
+    public enum DoctorStatuses
     {
-        Free,
+        Free = 0,
         Inclinick,
         Oncall,
         Vacation

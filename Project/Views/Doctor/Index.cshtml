@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var filter = ViewData["Filter"] as Project.Models.ViewData.DoctorFilterModel;
 }
 
 <section class="slider-area slider-area2 slider-height2 d-flex align-items-center  hero-overly">
@@ -23,17 +24,21 @@
     <div class="row" style="margin-left:10px">
 
         <div class="col-2">
-            <input type="text" name="DoctorLicense" value="" />
+            <input type="text" name="License" value="@filter.License" placeholder="Search Doctor License" />
         </div>
         <div class="col-2"></div>
         <div class="col-2">
-            <input type="text" name="DoctorName" value="" />
+            <input type="text" name="PhoneNumber" value="@filter.PhoneNumber" placeholder="Search Phone Number" />
+        </div>
+        <div class="col-2">
+            <select asp-items="@Html.GetEnumSelectList<Project.Models.Entities.DoctorStatuses>()" name="DoctorStatus">
+                <option value="">All</option>
+            </select>
         </div>
         <div class="col-2"></div>
-        <div class="col-2">
+        <div class="col-2" style="margin:5px">
             <input class="genric-btn info-border circle" type="submit" name="SearchFilter" value="Search" />
         </div>
-        <div class="col-2">   </div>
     </div>
 </form>
 
@@ -81,7 +86,7 @@
                     @Html.DisplayFor(modelItem => item.Cabinet)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DoctorStatus)
+                    <select asp-items="@Html.GetEnumSelectList<Project.Models.Entities.DoctorStatuses>()" asp-for="@item.DoctorStatus" onchange="updateDoctorStatus('@item.License', this)"></select>
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.License }, new { @class = "genric-btn primary circle" }) |
@@ -92,3 +97,20 @@
         }
     </tbody>
 </table>
+@section Scripts{ 
+    <script>
+        function updateDoctorStatus(id, obj) {
+            var status = $(obj).val();
+            console.log(status);
+            $.ajax({
+                type: "POST",
+                url: "/Doctor/ChangeDoctorStatus" + id,
+                data: JSON.stringify({"Status": status}),
+                contentType: "application/json"
+            }).done(function (response){
+                console.log(response);
+            })
+        }
+    </script>
+}
+

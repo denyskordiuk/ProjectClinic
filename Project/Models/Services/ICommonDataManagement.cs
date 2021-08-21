@@ -1,4 +1,5 @@
 ﻿using Project.Models.Entities;
+using Project.Models.ViewData;
 using System.Collections.Generic;
 
 namespace Project.Models.Services
@@ -11,7 +12,9 @@ namespace Project.Models.Services
         string UpdateClient(string phoneNumber, Client model);
         void DeleteClient(string phoneNumber);
         Doctor GetDoctor(string number);
-        IList<Doctor> GetDoctors(DoctorStatus? doctorStatus = null, string doctorName = null, string doctorLicense = null);
+        IList<Doctor> GetDoctors(DoctorStatuses? doctorStatus = null, string phoneNumber = null, string license = null);
+        IList<Doctor> GetDoctors(DoctorFilterModel filter);
+
         string AddDoctor(Doctor doctor);
         string UpdateDoctor(string doctorLicense, Doctor model);
         void DeleteDoctor(string doctorLicense);

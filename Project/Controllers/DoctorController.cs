@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Project.Models;
 using Project.Models.Entities;
 using Project.Models.Services;
+using Project.Models.ViewData;
 
 namespace Project.Controllers
 {
@@ -20,9 +21,10 @@ namespace Project.Controllers
             _service = service;
         }
 
-        public IActionResult Index(string DoctorLicense, string DoctorName)
+        public IActionResult Index(DoctorFilterModel filter)
         {
-            var doctors = _service.GetDoctors(doctorLicense: DoctorLicense, doctorName: DoctorName);
+            ViewData["Filter"] = filter;
+            var doctors = _service.GetDoctors(filter);
             return View(doctors);
         }
 
@@ -84,6 +86,12 @@ namespace Project.Controllers
         {
             _service.DeleteDoctor(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult ChangeDoctorStatus(string id, [FromBody] UpdateDoctorStatusViewModel model)
+        {
+            return Ok();
         }
     }
 }
